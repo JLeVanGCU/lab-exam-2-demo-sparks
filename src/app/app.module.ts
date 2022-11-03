@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ShowAlbumComponent } from './show-album/show-album.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,12 @@ import { ShowAlbumComponent } from './show-album/show-album.component';
     PagenotfoundComponent,
     SignInComponent,
     ShowAlbumComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
-
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

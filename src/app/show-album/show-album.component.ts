@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-show-album',
   templateUrl: './show-album.component.html',
   styleUrls: ['./show-album.component.css']
 })
-export class ShowAlbumComponent implements OnInit {
+export class ShowAlbumComponent implements OnInit
+{
 
   images = [
     {
@@ -31,9 +33,20 @@ export class ShowAlbumComponent implements OnInit {
 
 
   ]
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    this.dataService.getMovies((films: any[]) =>
+    {
+      console.log(films);
+      this.images = films.map(film =>
+      {
+        return {
+          "link": `${film.image}`,
+          "text": `${film.description}`
+        }
+      })
+    });
   }
-
 }
